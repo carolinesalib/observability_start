@@ -1,24 +1,9 @@
-# README
+# Observability Start
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a project to demonstrate how to start adding observability to a Rails application.
 
-Things you may want to cover:
+To run rails with open telemetry:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```shell
+env OTEL_TRACES_EXPORTER=console rails server -p 8080
+```
