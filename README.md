@@ -16,3 +16,17 @@ docker run \
     -v path/to/observability_start/prometheus.yml:/etc/prometheus/prometheus.yml \
     prom/prometheus
 ```
+
+```shell
+env OTEL_TRACES_EXPORTER=prometheus OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:9090" rails server -p 3001
+```
+
+To install grafana on macos
+
+```shell
+brew update
+brew install grafana
+brew services start grafana
+```
+
+Grafana will run on port 3000 by default. Default login is `admin` + `admin`. It can connect with prometheus by adding a Connection on the Grafana app itself.
