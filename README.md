@@ -2,31 +2,32 @@
 
 This is a project to demonstrate how to start adding observability to a Rails application.
 
-To run rails with open telemetry:
+## Prerequisites
 
+* Ruby 3.1.2
+* Docker and docker compose installed
+
+## Running the application
+
+To run prometheus and graphana:
 ```shell
-env OTEL_TRACES_EXPORTER=console rails server -p 8080
+docker-compose up
 ```
 
-To run prometheus on macos via docker:
+To connect Prometheus to Grafana:
+* Open http://localhost:3000/connections/datasources
+  * User and password: admin
+* Select Prometheus as data source
+* Add `http://localhost:9090/` as Prometheus server URL
+
+Run prometheus exporter service:
 
 ```shell
-docker run \
-    -p 9090:9090 \
-    -v path/to/observability_start/prometheus.yml:/etc/prometheus/prometheus.yml \
-    prom/prometheus
+bundle exec prometheus_exporter
 ```
+
+Run rails application:
 
 ```shell
-env OTEL_TRACES_EXPORTER=prometheus OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:9090" rails server -p 3001
+rails server -p 3001
 ```
-
-To install grafana on macos
-
-```shell
-brew update
-brew install grafana
-brew services start grafana
-```
-
-Grafana will run on port 3000 by default. Default login is `admin` + `admin`. It can connect with prometheus by adding a Connection on the Grafana app itself.
