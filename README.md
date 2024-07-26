@@ -1,24 +1,33 @@
-# README
+# Observability Start
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a project to demonstrate how to start adding observability to a Rails application.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+* Ruby 3.1.2
+* Docker and docker compose installed
 
-* System dependencies
+## Running the application
 
-* Configuration
+To run prometheus and graphana:
+```shell
+docker-compose up
+```
 
-* Database creation
+To connect Prometheus to Grafana:
+* Open http://localhost:3000/connections/datasources
+  * User and password: admin
+* Select Prometheus as data source
+* Add `http://localhost:9090/` as Prometheus server URL
 
-* Database initialization
+Run prometheus exporter service:
 
-* How to run the test suite
+```shell
+bundle exec prometheus_exporter
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Run rails application:
 
-* Deployment instructions
-
-* ...
+```shell
+rails server -p 3001
+```

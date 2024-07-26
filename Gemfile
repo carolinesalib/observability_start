@@ -70,3 +70,8 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "opentelemetry-sdk", "~> 1.4"
+gem "opentelemetry-instrumentation-all", "~> 0.60.0"
+gem "opentelemetry-exporter-otlp", "~> 0.26.3"
+gem "prometheus_exporter"
