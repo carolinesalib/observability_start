@@ -15,7 +15,7 @@ OpenTelemetry::SDK.configure do |c|
         endpoint: 'http://localhost:9394/metrics', # Update with your OTLP endpoint
         insecure: true
       ),
-      export_interval_millis: 60_000 # Export metrics every 60 seconds
+      export_interval_millis: 500 # Export metrics every half second
     )
   )
 end
