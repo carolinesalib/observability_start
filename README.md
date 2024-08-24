@@ -9,9 +9,19 @@ This is a project to demonstrate how to start adding observability to a Rails ap
 
 ## Running the application
 
-To run prometheus and graphana:
+To run prometheus and graphana on mac:
+<!-- ```shell
+docker-compose up -->
+<!-- ``` -->
+
 ```shell
-docker-compose up
+# installation
+brew install prometheus
+brew install grafana
+
+# running services
+prometheus --config.file=prometheus.yaml
+brew services start grafana
 ```
 
 To connect Prometheus to Grafana:
