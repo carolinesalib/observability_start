@@ -7,12 +7,12 @@ class JokesController < ApplicationController
     joke_response = JSON.parse(Net::HTTP.get(uri))
 
     # Use it to test status code metric
-    if rand < 0.2
-      # Simulate fake API timeout of 2 seconds
-      sleep(2)
+    # if rand < 0.1
+    #   # Simulate fake API timeout of 2 seconds
+    #   sleep(2)
 
-      raise "Error fetching fake API!"
-    end
+    #   raise "Error fetching fake API!"
+    # end
 
     @joke_title = joke_response["setup"]
     @joke = joke_response["delivery"] || joke_response["joke"]

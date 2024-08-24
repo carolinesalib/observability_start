@@ -41,3 +41,9 @@ Run rails application:
 ```shell
 rails server -p 3001
 ```
+
+To populate metrics by pinging the jokes url
+
+```shell
+sh ping_jokes_page.sh
+```
